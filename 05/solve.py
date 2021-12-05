@@ -13,10 +13,7 @@ with open('./input.txt') as f:
     # 3,4 -> 1,4
     # 0,0 -> 8,8
     # 5,5 -> 8,2
-    vents = []
-    for l in f.readlines():
-        x1, y1, x2, y2 = re.match(r'^(\d+),(\d+) -> (\d+),(\d+)$', l).groups()
-        vents.append((int(x1), int(y1), int(x2), int(y2)))
+    vents = [[int(i) for i in re.match(r'^(\d+),(\d+) -> (\d+),(\d+)$', l).groups()] for l in f.readlines()]
 
 def map_out_vents(vents, with_diagonals=True):
     vent_mapping = defaultdict(lambda: 0)
@@ -38,7 +35,6 @@ def map_out_vents(vents, with_diagonals=True):
 
 def count_overlaps(vent_mapping):
     return len([v for v in vent_mapping.values() if v > 1])
-
 
 print(f'Part 1: {count_overlaps(map_out_vents(vents, with_diagonals=False))}')
 print(f'Part 2: {count_overlaps(map_out_vents(vents))}')
