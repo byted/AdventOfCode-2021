@@ -1,7 +1,8 @@
 import re
+import os
 from collections import defaultdict
 
-with open('./input.txt') as f:
+with open(os.path.dirname(os.path.realpath(__file__)) + '/input.txt') as f:
     # Sample input
     # 0,9 -> 5,9
     # 8,0 -> 0,8
