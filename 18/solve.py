@@ -4,7 +4,7 @@ import re
 from copy import deepcopy
 
 def parse_sn(sn):
-    # or just use "from json import loads" ... *facepalm*
+    # or just use "from json import loads" or "eval" ... *facepalm*
     nodes = []
     for ix, c in enumerate(sn):
         if c == '[':
